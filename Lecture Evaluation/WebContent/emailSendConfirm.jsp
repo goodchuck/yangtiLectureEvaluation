@@ -19,11 +19,11 @@
 if(session.getAttribute("userID") != null){
 	userID = (String) session.getAttribute("userID");	
 }
-if(userID != null){
+if(userID == null){
 	   PrintWriter script = response.getWriter();
 	   script.println("<script>");
-	   script.println("alert('로그인이 된 상태입니다.');");
-	   script.println("location.href = 'index.jsp';");
+	   script.println("alert('로그인을 해주세요');");
+	   script.println("location.href = 'userLogin.jsp';");
 	   script.println("</script>");
 	   script.close();
 	   return;
@@ -65,34 +65,20 @@ if(userID != null){
 		</form>
 	</div>
 	</nav>
-	<section class="container mt-3" style="max-width: 560px;">
-		<!-- html5에서 사용하는거고 본문같은거 담을때 사용함 -->
-		<form method="post" action="./userRegisterAction.jsp">
-			<div class="form-group">
-				<label>아이디</label> 
-				<input type="text" name="userID"
-					class="form-control">
-			</div>
-			<div class="form-group">
-				<label>비밀번호</label> 
-				<input type="password" name="userPassword"
-					class="form-control">
-			</div>
-			<div class="form-group">
-				<label>이메일</label> 
-				<input type="email" name="userEmail"
-					class="form-control">
-			</div>
-			<button type="submit" class="btn btn-primary">회원가입</button>
-		</form>
+	<section class="container mt-3" style="max-width: 560px;"> <!-- html5에서 사용하는거고 본문같은거 담을때 사용함 -->
+		<div class = "alert alert-warning mt-4" role="alert">
+			이메일 주소 인증을 하셔야 이용 가능합니다. 인증 메일을 받지 못하셨나요?
+		</div>
+		<a href="emailSendAction.jsp" class="btn btn-primary">인증 메일 다시 받기</a>
 	</section>
 	<footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
-		Copyright &copy; 2018 나동빈 All Rights Reserved. </footer>
+		Copyright &copy; 2018 나동빈 All Rights Reserved.
+	</footer>
 	<!-- 제이쿼리 자바스크립트 추가하기 -->
-	<script src="./js/jquery.min.js"></script>
+	<script src ="./js/jquery.min.js"></script>
 	<!-- 파퍼 자바스크립트 추가하기 -->
-	<script src="./js/pooper.min.js"></script>
+	<script src ="./js/pooper.min.js"></script>
 	<!-- 부트스트랩 자바스크립트 추가하기 -->
-	<script src="./js/bootstrap.min.js"></script>
+	<script src ="./js/bootstrap.min.js"></script>
 </body>
 </html>

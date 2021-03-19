@@ -115,7 +115,7 @@ public class UserDAO {
 			conn= DatabaseUtil.getConnection();
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, userID);
-			rs = pstmt.executeQuery();
+			//rs = pstmt.executeQuery();
 			pstmt.executeUpdate();
 			return true;
 		} catch(Exception e) {
